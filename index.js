@@ -15,7 +15,7 @@ client.once('ready', () => {
 client.login(process.env.Token);
 client.on('message', message => {
   const word = message.content.toLocaleUpperCase()
-  if (word.includes('SG') && word.includes('-')){
+  if (word.includes('SG') && word.includes('-') && message.channel.name == 'kenalan'){
     if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!')
     else {
       // let SGRole = message.guild.roles.find('name', "SG AI");
@@ -24,7 +24,7 @@ client.on('message', message => {
       message.member.roles.add("808672118534570014");
       message.reply("Selamat datang di Discord Artificial Intelligence Laboratory")
     }
-  }else if (word.includes('FG') && word.includes('-')){
+  }else if (word.includes('FG') && word.includes('-') && message.channel.name == 'kenalan'){
     if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!')
     else {
       // let FGRole = message.guild.roles.find('name', "FG AI");
