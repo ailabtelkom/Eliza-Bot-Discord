@@ -40,21 +40,23 @@ client.on('message', message => {
   }else if (word.includes("eliz4")){
     const words = word.slice(6)
     for (let i = 0; i < id_dictionaries.length; i++) {
-      const verb = words.match(id_dictionaries[i][0])
-      if (verb){
-        let answer = id_dictionaries[i][1].random()
-        answer = answer.replace('%',verb[1])
-        message.reply(answer)
+      const verb = words.split(" ")
+      if (words.match(id_dictionaries[i][0])){
+        let answer = id_dictionaries[i][2].random()
+        answer = answer.replace('%',verb[id_dictionaries[i][1]])
+        message.reply(answer, {disableMentions: false})
+        break
       }
     }
-  }else if (message.channel.name == 'eliza-room'){
+  }else if (message.channel.name == 'eliza-room' && message.author.id != "809329609182412810"){
     const words = word
     for (let i = 0; i < id_dictionaries.length; i++) {
-      const verb = words.match(id_dictionaries[i][0])
-      if (verb){
-        let answer = id_dictionaries[i][1].random()
-        answer = answer.replace('%',verb[1])
+      const verb = words.split(" ")
+      if (words.match(id_dictionaries[i][0])){
+        let answer = id_dictionaries[i][2].random()
+        answer = answer.replace('%',verb[id_dictionaries[i][1]])
         message.reply(answer)
+        break
       }
     }
   }
