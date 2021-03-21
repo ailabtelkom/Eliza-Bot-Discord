@@ -20,7 +20,7 @@ client.once('ready', () => {
 client.login(process.env.Token);
 client.on('message', message => {
   const word = message.content.toLowerCase()
-  console.log(message.channel)
+  // console.log(message.channel)
   if (word.includes('sg') && word.includes('-') && message.channel.id == '809355029714436116'){
     if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!')
     else {
