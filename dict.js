@@ -78,20 +78,24 @@ id_dictionaries = [
       "Sepertinya tidak",
     ],
   ],
-
+  [
+    "(kamu|siapa) (siapa|kamu)",
+    0,
+    [
+      "Aku raisa, kucing idaman anak ai",
+      "aku kucing penjaga lab ai lohh",
+      "miaww miaww miaww",
+    ],
+  ],
   [
     "(apa|bagaimana) (kabar|kabarmu)?",
     0,
     ["Baik, kamu?", "Baik.", "Baik, tentu saja.", "Menurut kamu?"],
   ],
 
-  ["(.*) maaf (.*)", 
-    0, 
-    ["Tak apa.", "Engga papa.", "Kenapa :( ?"]],
+  ["(.*) maaf (.*)", 0, ["Tak apa.", "Engga papa.", "Kenapa :( ?"]],
 
-  ["(hello|hai|hi|halo|hallo)(.*)",
-    0,
-    ["Hai", "Hi?", "Halo, Apa kabarmu?"]],
+  ["(hello|hai|hi|halo|hallo)(.*)", 0, ["Hai", "Hi?", "Halo, Apa kabarmu?"]],
 
   [
     "(.*) (temen|teman|temenku|temanku) (.*)",
@@ -103,16 +107,17 @@ id_dictionaries = [
     ],
   ],
 
-  ["iya",
-    0,
-    ["Hmm, iya.", "Sudah kuduga"]],
+  ["iya", 0, ["Hmm, iya.", "Sudah kuduga"]],
+  ["(mantap|mantapp|hebatt|hebat)", 0, ["Ahh Mantapp", "Kamu juga!"]],
 
-  ["(baik|alhamdulillah)",
+  [
+    "(baik|alhamdulillah)",
     0,
     ["Alhamdulillah", "Semoga tetap baik saja.", "Aku juga baik"],
   ],
 
-  ["bisakah kamu ([^?]*)??",
+  [
+    "bisakah kamu ([^?]*)??",
     2,
     [
       "Apa akmu berpikir saya tidak bisa %?",
@@ -121,7 +126,8 @@ id_dictionaries = [
     ],
   ],
 
-  ["bisa (ngga|tidak|nga) (kamu|lo|elo|lu) ([^?]*)??",
+  [
+    "bisa (ngga|tidak|nga) (kamu|lo|elo|lu) ([^?]*)??",
     3,
     [
       "Apa akmu berpikir saya tidak bisa %?",
@@ -130,7 +136,8 @@ id_dictionaries = [
     ],
   ],
 
-  ["(aku|gw|saya) (pengen|ingin|kepengen) bisa ([^?]*)??",
+  [
+    "(aku|gw|saya) (pengen|ingin|kepengen) bisa ([^?]*)??",
     3,
     [
       "Kenapa kamu ingin bisa %.",
@@ -176,23 +183,27 @@ id_dictionaries = [
     ],
   ],
 
-  ["Selamat malam (.*)|selamat malam|malam (.*)|malam",
+  [
+    "Selamat malam (.*)|selamat malam|malam (.*)|malam",
     0,
     ["Malam.", "Selamat malam.", "Iya?"],
   ],
 
-  ["Selamat pagi (.*)|selamat pagi|pagi (.*)|pagi",
+  [
+    "Selamat pagi (.*)|selamat pagi|pagi (.*)|pagi",
     0,
     ["pagi.", "Selamat pagi.", "Pagi yang cerah", "Iya?"],
   ],
 
-  ["(developer|pengembang)",
+  [
+    "(developer|pengembang)",
     0,
     [
       "Bot ini diciptakan oleh https://github.com/raisoturu dan https://github.com/alifnaufalyasin",
     ],
   ],
-  ["(tentang|about)",
+  [
+    "(tentang|about)",
     0,
     [
       "Eliza merupakan pertama yang dibuat pada tahun 1964 sampai 1966 oleh Professor Joseph Weizenbaum di MIT (Massachusetts Institute of Technology), dengan tujuan untuk mempelajari komunikasi natural language antara manusia dengan mesin.",
@@ -201,13 +212,20 @@ id_dictionaries = [
     ],
   ],
 
-  ["(quit|keluar|exit|dadah|bye)",
+  [
+    "(quit|keluar|exit|dadah|bye)",
     0,
     ["Dadah.", "Good-bye.", "Terima kasih sudah mengobrol"],
   ],
-  ["(.*)?",
+  [
+    "(.*)?",
     0,
-    ["Kenapa kamu bertanya itu?", "Kenapa?", "Hmmm... Aku tidak yakin.", "Ada pertanyaan lain ga, aku bingung..."],
+    [
+      "Kenapa kamu bertanya itu?",
+      "Kenapa?",
+      "Hmmm... Aku tidak yakin.",
+      "Ada pertanyaan lain ga, aku bingung...",
+    ],
   ],
 ]
 id_default_responses = [
