@@ -15,13 +15,7 @@ const client = new Discord.Client();
 client.once('ready', () => {
 	console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
     client.user.setStatus('online')
-    client.user.setPresence({
-        game: {
-            name: 'Raisa Siap Membantu',
-            type: "Playing",
-            url: "https://discordapp.com/"
-        }
-    });
+    client.user.setActivity(`Raisa Siap Membantu`, {type: "playing"});
 });
 
 // login to Discord with your app's token
