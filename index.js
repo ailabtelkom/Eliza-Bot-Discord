@@ -13,7 +13,15 @@ const client = new Discord.Client();
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
+    client.user.setStatus('online')
+    client.user.setPresence({
+        game: {
+            name: 'Raisa Siap Membantu',
+            type: "Playing",
+            url: "https://discordapp.com/"
+        }
+    });
 });
 
 // login to Discord with your app's token
