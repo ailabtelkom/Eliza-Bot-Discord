@@ -49,6 +49,16 @@ client.on('message', message => {
         message.reply("Maaf NIM tidak terdaftar")
       }
     }
+  }else if (word.includes('alumni') && word.includes('-') && message.channel.id == '809355029714436116'){
+    if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!')
+    else {
+      // let FGRole = message.guild.roles.find('name', "FG AI");
+      const MSG = message.content.split("-")
+      const Name = MSG[0]
+      message.member.setNickname(Name)
+      message.member.roles.add("815902752206094336");
+      message.reply("Selamat datang kakak alumni di Discord Artificial Intelligence Laboratory")
+    }
   }else if (word.includes("eliz4")){
     const words = word.slice(6)
     for (let i = 0; i < id_dictionaries.length; i++) {
@@ -60,7 +70,7 @@ client.on('message', message => {
         break
       }
     }
-  }else if (message.channel.id == '820201188267130950' && message.author.id != "809329609182412810"){
+  }else if (message.channel.id == '820201188267130950' && message.author.id != "809329609182412810" && message.author.id != "159985870458322944"){
     const words = word
     for (let i = 0; i < id_dictionaries.length; i++) {
       const verb = words.split(" ")
