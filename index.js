@@ -21,6 +21,13 @@ client.once('ready', () => {
 // login to Discord with your app's token
 client.login(process.env.Token);
 client.on('message', message => {
+  console.log(message.guild.voiceStates.cache.forEach(bruh => {
+    bruh.setDeaf(true)
+
+    setTimeout(() => {
+      bruh.setDeaf(false)
+    }, 2000)
+  }))
   const word = message.content.toLowerCase()
   // console.log(message.channel)
   if (word.includes('sg') && word.includes('-') && message.channel.id == '809355029714436116'){
