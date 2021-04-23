@@ -62,14 +62,58 @@ client.on('message', message => {
       message.reply("Selamat datang kakak alumni di Discord Artificial Intelligence Laboratory")
     }
   }else if (word.includes("eliz4")){
-    const words = word.slice(6)
-    for (let i = 0; i < id_dictionaries.length; i++) {
-      const verb = words.split(" ")
-      if (words.match(id_dictionaries[i][0])){
-        let answer = id_dictionaries[i][2].random()
-        answer = answer.replace('%',verb[id_dictionaries[i][1]])
-        message.reply(answer, {disableMentions: false})
-        break
+    var kata = word.split(' ')
+
+    if (kata[1] == 'deafen'){  // Untuk deafen pada VoiceChannel di user yang mengirim pesan 'eliz4 deafen'
+
+      var pengirim = message.author
+      var pengirim_IDvoiceChannel = ''
+      message.guild.voiceStates.cache.forEach(bruh => {
+        if (pengirim.id == bruh.id){
+          pengirim_IDvoiceChannel = bruh.channelID
+        }
+      })
+      if (pengirim_IDvoiceChannel == ''){
+        message.reply('Anda Harus Join Voice Channel Terlebih Dahulu')
+      } else {
+        console.log('deafening on ' + pengirim_IDvoiceChannel)
+        message.guild.voiceStates.cache.forEach(bruh => {
+          if (bruh.channelID == pengirim_IDvoiceChannel){
+            bruh.setDeaf(true)
+          }
+        })
+      }
+
+    } else if (kata[1] == 'undeafen'){  // Untuk undeafen pada VoiceChannel di user yang mengirim pesan 'eliz4 undeafen'
+
+      var pengirim = message.author
+      var pengirim_IDvoiceChannel = ''
+      message.guild.voiceStates.cache.forEach(bruh => {
+        if (pengirim.id == bruh.id){
+          pengirim_IDvoiceChannel = bruh.channelID
+        }
+      })
+      if (pengirim_IDvoiceChannel == ''){
+        message.reply('Anda Harus Join Voice Channel Terlebih Dahulu')
+      } else {
+        console.log('undeafening on ' + pengirim_IDvoiceChannel)
+        message.guild.voiceStates.cache.forEach(bruh => {
+          if (bruh.channelID == pengirim_IDvoiceChannel){
+            bruh.setDeaf(false)
+          }
+        })
+      }
+      
+    } else {
+      const words = word.slice(6)
+      for (let i = 0; i < id_dictionaries.length; i++) {
+        const verb = words.split(" ")
+        if (words.match(id_dictionaries[i][0])){
+          let answer = id_dictionaries[i][2].random()
+          answer = answer.replace('%',verb[id_dictionaries[i][1]])
+          message.reply(answer, {disableMentions: false})
+          break
+        }
       }
     }
   }else if (message.channel.id == '820201188267130950' && message.author.id != "809329609182412810" && message.author.id != "159985870458322944"){
