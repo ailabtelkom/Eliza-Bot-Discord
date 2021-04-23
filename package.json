@@ -12,7 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "pm2 link 568c0yb0vrlm3qi a0uzvegw272720i && pm2 index.js",
+    "start": "pm2 link 568c0yb0vrlm3qi a0uzvegw272720i && pm2 start index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "node index.js"
   },
