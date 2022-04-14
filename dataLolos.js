@@ -59,7 +59,7 @@ module.exports = {
   '1301204106': {lolos: true, nama: 'Dewa Made Wijaya'},
   '1301204376': {lolos: true, nama: 'Khalilullah Al Faath'},
   '1301203150': {lolos: true, nama: 'Muhammad Daffa Khairi'},
-  '1301204127': {lolos: true, nama: 'Farida Arum Parwati''},
+  '1301204127': {lolos: true, nama: 'Farida Arum Parwati'},
   '1105213011': {lolos: true, nama: 'Jasmine Andraina Hamidah Wijayanto'},
   '1301213227': {lolos: true, nama: 'Bintan Dinar Artamevia'},
   '1105213005': {lolos: true, nama: 'Yusrina Latansadina'},
