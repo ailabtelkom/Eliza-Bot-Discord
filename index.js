@@ -6,6 +6,18 @@ const Discord = require('discord.js');
 require('dotenv').config()
 const {id_dictionaries} = require('./dict')
 const dataLolos = require("./dataLolos")
+const { getSheetData } = require("./getSheetData")
+
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
+app.use(cors())
+
+app.post("/getSheetAI", getSheetData)
+
 
 // create a new Discord client
 const client = new Discord.Client();
@@ -20,6 +32,7 @@ client.once('ready', () => {
 
 // login to Discord with your app's token
 client.login(process.env.Token);
+client
 client.on('message', message => {
   const word = message.content.toLowerCase()
   // console.log(message.channel)
@@ -129,4 +142,8 @@ client.on('message', message => {
     }
   }
   
+});
+
+app.listen(port, () => {
+  console.log(`cli-nodejs-api listening at http://localhost:${port}`)
 });
