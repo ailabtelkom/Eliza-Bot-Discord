@@ -8,7 +8,10 @@ const {id_dictionaries} = require('./dict')
 const dataLolos = require("./dataLolos")
 const { getSheetData } = require("./getSheetData")
 
+const bodyParser = require("body-parser")
 const express = require('express');
+const cors = require('cors')
+
 const app = express();
 const port = process.env.PORT || 5000;
 
