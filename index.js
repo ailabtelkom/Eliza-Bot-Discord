@@ -23,6 +23,10 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(cors())
 
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
 app.post("/getSheetAI", getSheetData)
 
 // when the client is ready, run this code
