@@ -6,25 +6,35 @@ const Discord = require('discord.js');
 require('dotenv').config()
 const {id_dictionaries} = require('./dict')
 const dataLolos = require("./dataLolos")
-const { createServer } = require ("./server")
+
+const { getSheetData } = require("./getSheetData")
+
+const bodyParser = require("body-parser")
+const express = require('express');
+const cors = require('cors')
 
 const port = process.env.PORT || 5000;
 
 // create a new Discord client
 const client = new Discord.Client();
-const app = createServer(client)
+const app = express();
+
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
+app.use(cors())
+
+app.post("/getSheetAI", getSheetData)
 
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
 client.once('ready', () => {
-	console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
+	console.log(`Bot: Hosting ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setStatus('online')
     client.user.setActivity(`Raisa Siap Membantu`, {type: "playing"});
 });
 
 // login to Discord with your app's token
 client.login(process.env.Token);
-client
 client.on('message', message => {
   const word = message.content.toLowerCase()
   // console.log(message.channel)
@@ -136,6 +146,6 @@ client.on('message', message => {
   
 });
 
-app.listen(port, () => {
-  console.log("Express server is listening on port 3000")
-});
+var listener = app.listen(process.env.PORT || 5000, function() {
+  console.log('listening on port ' + listener.address().port);
+ });
