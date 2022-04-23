@@ -6,24 +6,13 @@ const Discord = require('discord.js');
 require('dotenv').config()
 const {id_dictionaries} = require('./dict')
 const dataLolos = require("./dataLolos")
-const { getSheetData } = require("./getSheetData")
+const { createServer } = require ("./server")
 
-const bodyParser = require("body-parser")
-const express = require('express');
-const cors = require('cors')
-
-const app = express();
 const port = process.env.PORT || 5000;
-
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(bodyParser.json())
-app.use(cors())
-
-app.post("/getSheetAI", getSheetData)
-
 
 // create a new Discord client
 const client = new Discord.Client();
+const app = createServer(client)
 
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
@@ -148,5 +137,5 @@ client.on('message', message => {
 });
 
 app.listen(port, () => {
-  console.log(`cli-nodejs-api listening at http://localhost:${port}`)
+  console.log("Express server is listening on port 3000")
 });
